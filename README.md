@@ -75,4 +75,4 @@ You should now be able to access the API at `http://127.0.0.1:8000/`.
 ## API Endpoints
 - `POST simulator/`: Fan simulator
 - `POST consumption/`: Fan consumption interface
-<!-- - `GET fan/consumption/`: Fan consumption data -->
+- `GET fan/consumption/`: Fan consumption data
