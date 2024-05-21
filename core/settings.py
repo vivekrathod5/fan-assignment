@@ -127,8 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 # STATIC_URL = 'static/'
-STATIC_ROOT = '/mnt/data/static'
-MEDIA_ROOT = '/mnt/data/media'
+STATIC_ROOT = '/static'
+MEDIA_ROOT = '/media'
 
 
 # Default primary key field type
