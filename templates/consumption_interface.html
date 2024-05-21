@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumption Interface</title>
+    <p>Use YYYY-MM-DDTHH:MM:SS format</p>
+    <script>
+        function getConsumptionData(event) {
+            event.preventDefault();
+            const startTime = document.getElementById('id_start_time').value;
+            const endTime = document.getElementById('id_end_time').value;
+
+            fetch(`/fan/consumption/?start_time=${startTime}&end_time=${endTime}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('results').innerText = `
+                        Total Power Consumption: ${data.total_power_consumption} kW
+                        Total Energy Consumption: ${data.total_energy_consumption} kWh
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('results').innerText = 'An error occurred while fetching the data.';
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Consumption Interface</h1>
+    <form onsubmit="getConsumptionData(event);">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    <div id="results"></div>
+</body>
+</html>

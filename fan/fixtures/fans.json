@@ -1,0 +1,12 @@
+[
+    {
+      "model": "fan.fan",
+      "pk": 1,
+      "fields": {
+        "name": "Ceiling Fan",
+        "voltage": 220,
+        "power_factor": 0.8
+      }
+    }
+  ]
+  
