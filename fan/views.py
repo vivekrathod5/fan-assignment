@@ -8,6 +8,11 @@ from django.utils.timezone import make_aware
 from django.views.decorators.csrf import csrf_exempt
 
 
+
+def landing_page(request):
+    return render(request, 'landing.html')
+
+
 @csrf_exempt
 def fan_simulator(request):
     """
@@ -87,8 +92,8 @@ def calculate_consumption(start_time, end_time):
     Returns:
     - Tuple[float, float]: A tuple containing the total power consumption (in kW) and total energy consumption (in kWh).
     """
-    start_time = make_aware(start_time)
-    end_time = make_aware(end_time)
+    # start_time = make_aware(start_time)
+    # end_time = make_aware(end_time)
     fan_logs = FanLog.objects.filter(timestamp__gte=start_time, timestamp__lte=end_time)
 
     total_power_consumption = 0
